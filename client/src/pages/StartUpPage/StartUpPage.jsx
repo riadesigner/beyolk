@@ -1,4 +1,8 @@
 export default function StartUpPage() {
+
+  const logoFond = '/innovation.png';
+  // const logoFond = '/no-image.jpg';
+
   return (
     <>
       <section className="container is-max-desktop desktop-only">
@@ -24,7 +28,7 @@ export default function StartUpPage() {
             <article>
 
               <p>
-                <img src="/public/logo-innovation.png" alt="logo" style={{maxWidth:'200px'}} />
+                <img src={logoFond} alt="logo" style={{maxWidth:'200px'}} />
               </p>
                             
               <h1>О стартапе</h1>
