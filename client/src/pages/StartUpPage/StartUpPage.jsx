@@ -22,6 +22,11 @@ export default function StartUpPage() {
         <div className="section">
           <div className="article">
             <article>
+
+              <p>
+                <img src="/public/logo-innovation.png" alt="logo" style={{maxWidth:'200px'}} />
+              </p>
+                            
               <h1>О стартапе</h1>
 
               <h2 className="title mb-4 mt-5">История создания</h2>
