@@ -87,6 +87,16 @@ export default function DesignerAdminPage() {
                     </button>
                   </Link>
                 </div>
+
+                <h2 className="is-size-5-mobile">Посещения</h2>
+                  <a target="_blank" href="https://metrika.yandex.ru/list?period=week&group=day">
+                  <button className="button is-fluid is-medium is-regular-mobile is-link">
+                      <span>Счетчик Яндекс.Метрика</span>
+                      <span className="icon">
+                        <i className="fa fa-angle-right" />
+                      </span>
+                  </button>
+                  </a>
               </div>
 
               <NotifsLast
