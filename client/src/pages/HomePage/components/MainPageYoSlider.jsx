@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import styles from './MainPageYoSliders.module.css';
 import { getPayloads } from '../../../utils/payloads.jsx';
+import { useState } from 'react';
 
 export default function MainPageYoSlider() {
   const savedUser = getPayloads();
@@ -14,6 +15,19 @@ export default function MainPageYoSlider() {
     administrator: '/cp/yolk-admin',
     unknown: '/login',
   };
+  
+  const [currentSlide, setCurrentSlide] = useState(2);
+
+  const handleMouseEnter = (e, i) => {
+    setCurrentSlide(i);
+    e.target.classList.add(styles.current);
+  };
+
+  const arrSlides = [
+    {id:'slide-0', slideTitle:()=>{return (<h1 className="title is-size-3">Создай <br />свой <br />профиль</h1>)}, link:'/login'},
+    {id:'slide-1', slideTitle:()=>{return (<h1 className="title is-size-3">Найди <br />своего <br />дизайнера</h1>)}, link:'/designers'},
+    {id:'slide-2', slideTitle:()=>{return (<h1 className="title is-size-3">Найди <br />свой <br />заказ</h1>)}, link:'/orders'},
+  ];
 
   return (
     <>
@@ -22,47 +36,23 @@ export default function MainPageYoSlider() {
           <div className={styles.yoSlider}>
             <svg width="4" height="1.5" viewBox="0 0 4 1.5" />
             <div className={styles.yoSliderContainer}>
-              <div
-                className="p-6"
-                onClick={() => {
-                  navigate(navTo[userRole]);
-                }}
-              >
-                <h1 className="title is-size-3">
-                  Создай <br />
-                  свой
-                  <br /> профиль
-                </h1>
-                <span />
-              </div>
-              <div
-                className="p-6"
-                onClick={() => {
-                  navigate('/designers');
-                }}
-              >
-                <h1 className="title is-size-3">
-                  Найди <br />
-                  своего
-                  <br /> дизайнера
-                </h1>
-                <span />
-              </div>
-              <div
-                className="p-6"
-                onClick={() => {
-                  navigate('/orders');
-                }}
-              >
-                <h1 className="title is-size-3">
-                  Найди
-                  <br />
-                  свой
-                  <br />
-                  заказ
-                </h1>
-                <span />
-              </div>
+              {
+                arrSlides.map((slide, i)=>{
+                  return (
+                  <div                  
+                    className="p-6"
+                    onMouseEnter={(el)=>handleMouseEnter(el,i)}                    
+                    onClick={() => {
+                      navigate(slide['link']);
+                    }}
+                  >
+                    {slide.slideTitle()}
+                  <span />
+                  <div></div>
+                  </div>                    
+                  )
+                })
+              }
             </div>
           </div>
         </div>
