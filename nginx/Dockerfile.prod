@@ -8,8 +8,12 @@ RUN npm run build
 
 # Этап 2: Финальный nginx образ
 FROM nginx:alpine
+
+# Создаем папку для letsencrypt
+RUN mkdir -p /var/www/letsencrypt/.well-known/acme-challenge
+
 COPY --from=client-builder /app/client/dist /usr/share/nginx/html
 COPY nginx/prod.conf /etc/nginx/nginx.conf
-#COPY nginx/certs /etc/letsencrypt
+
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
