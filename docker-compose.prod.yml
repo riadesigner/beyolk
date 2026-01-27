@@ -41,10 +41,13 @@ services:
       - 443:443
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt:ro      
+      - /var/www/letsencrypt:/var/www/letsencrypt:ro  # Папка для верификации      
     depends_on:
       - server
     networks:
       - yolk2-network
+
+   
 
 networks:
   yolk2-network:
