@@ -59,6 +59,15 @@ export default function SiteFooter() {
         </div>
       </section>
 
+      <div>
+        <section className='container'>
+          <hr />
+            <div className='columns section'>
+              <div><img src="./innovation.png" alt="" width='100px' height='auto' /></div>
+              <div className="is-size-7">Проект создан при поддержке Федерального государственного бюджетного учреждения «Фонд содействия развитию малых форм предприятий в научно-технической сфере в рамках программы «Студенческий стартап» федерального проекта «Платформа университетского технологического предпринимательства».</div>
+            </div>
+        </section>          
+      </div>
       <div className="site-footer mt-5" />
     </>
   );
